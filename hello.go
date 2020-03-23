@@ -139,6 +139,83 @@ func addThemUp(numbers []int) int {
 fmt.println(addThemUp(listOfNums));
 
 //here we are creating a function that is going to return 2 values
+num1, num2 := nextTwoValues(5)
+fmt.println(num1, num2)
+
+func nextTwoValues(number int) (int, int){
+return number+1,int 
+} number+2
+}
+//sending an undefined number of values to a function
+fmt.println(subtractThem(1,2,3,4,5))
+fun subTractThem(arg ... int)  {
+	finalValue := 0
+	for _, value := range arg {
+		finalValue -= value
+	}
+	return finalValue
+}
+
+//creating a function inside of a function 
+// also defining closures, which have access everywhere even if they have
+// been defined within a function
+
+num3 : =3
+doubleNum := func() int {
+	num3 *= 2
+
+	return num3
+}
+//recursion, calling a function with inside of itself
+
+func factorial(num int) int {
+	if num == 0 {
+		return 1
+	}
+
+	return num * factorial(num - 1)
+}
+// need to play around with this concept because its super confusing
+//but this is what happens
+//factorial(3)
+//3* factorial(2) == 3 * 2 = 6
+//2* factorial(1) == 2 * 1 = 2
+
+//defer will be executed at the very end of the function
+func printOne() {
+fmt.println(1)
+}
+
+func printTwo() {
+fmt.println(2)
+}
+
+//when the function runs, printone will run first, then printtwo
+// will run. essentially, defer can be used to run a function at the
+// end of your main function as a type of clean up 
+defer printTwo()
+printOne()
+
+//recover is going to catch if an error would occur
+// allows for continue execution even if a fatal error were to occur
+func safeDiv(num1, num2 int) int {
+	defer func() {
+		fmt.Println(recover())
+	}()
+	solution := num1 / num2 
+	return solution
+}
+
+//pointers
+// allows you to change the memory address. this one is a little confusing 
+// as well, keep in mind the * in front of the param and the & in front of the x
+// this is how you know you'll be using pointers
+x := 0;
+
+func changeXVal(x *int) {
+*x = 2
+}
+changeXVal(&x);
 
 
 
